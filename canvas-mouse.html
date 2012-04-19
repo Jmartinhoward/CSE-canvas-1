@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Canvas Example - Draw Somethin'</title>
+		<title>Canvas Example - Draw at a point</title>
 		<style>
 		#myCanvas {
-			border: 3px dotted red;
+			border: 24px solid #0000A0;
+			color: #800080;
+    background-color: #00FFFF	;
+    margin:250px 500px;
 		}
 		</style>
 	</head>
 	<body>
+	
+		
+		
 		<canvas width="250" height="250" id="myCanvas"></canvas>
 		
 		
@@ -16,8 +22,33 @@
 			var canvas = document.getElementById('myCanvas');
 			var ctx = canvas.getContext('2d');
 			
+		
+			
+			
+			
+			
+			
+			
+			function drawCircle(x, y, radius, color)
+			{
+				
+				// draw a circle and fill it in
+				ctx.beginPath();
+				ctx.arc(x, y, radius, 0, Math.PI*2, true);
+				ctx.closePath();
+				
+				// set the fill color to lime
+				ctx.fillStyle= color || "#00FF00";
+				ctx.fill();
+			}
+			
+			
 			canvas.addEventListener('mousemove', function(event) {
 				console.log('mousemove at (%o, %o)', event.offsetX, event.offsetY);
+			
+			drawCircle(event.offsetX, event.offsetY, 10)
+			
+			
 			});
 			
 		</script>
